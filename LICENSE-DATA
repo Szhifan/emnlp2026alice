@@ -1,0 +1,39 @@
+ALICE dataset licence
+=====================
+
+The contents of `alice_data_public/` — the train/test splits and the rubric
+metadata in `question_meta/` — are released under
+
+    Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+    (CC BY-NC-SA 4.0)
+
+Full legal text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+In short, you are free to share and adapt the data for non-commercial purposes,
+provided you give appropriate credit and distribute any derivative under the
+same licence.
+
+Additional terms of use
+-----------------------
+
+The data consists of responses written by K-12 students in routine classroom
+assessment, collected under educational governance and privacy protections.
+Identifiers were removed and responses were anonymised before annotation.
+Question identifiers in the release are anonymised.
+
+By using this dataset you agree to:
+
+1. Use it for research on short-answer scoring and related educational NLP,
+   not to identify or attempt to re-identify any student, teacher, class or
+   school.
+2. Not redistribute it in a form that reverses the anonymisation.
+3. Treat models trained on it as tools that support instructional practice,
+   not as replacements for expert human judgment, and to report bias, fairness
+   and interpretability considerations when deploying or publishing on them.
+
+If you believe any record contains residual personal information, please
+contact the authors so it can be removed.
+
+The source code in this repository is licensed separately under MIT; see
+LICENSE.

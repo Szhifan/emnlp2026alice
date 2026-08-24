@@ -1,0 +1,416 @@
+{
+    "math_1": {
+        "solution": "Die Aussage ist falsch, da die Funktion keinen gleichmäßigen Anstieg besitzt, wird die durchschnittliche Steigung ungenauer auf einem größeren Intervall.",
+        "prompt": "Erläutere, warum du \"Wahr\" oder \"Falsch\" angekreuzt hast.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder den Verlauf der Sekante bei Vergrößerung des Δx noch schließen sie daraus, dass die durchschnittliche Steigung auf größerem Intervall ungenauer wird."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder den Verlauf der Sekante bei Vergrößerung des Δx oder sie stellen fest, dass die durchschnittliche Steigung auf größerem Intervall ungenauer wird."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben den Verlauf der Sekante bei Vergrößerung des Δx und stellen fest, dass die durchschnittliche Steigung auf größerem Intervall ungenauer wird."
+            }
+        }
+    },
+    "math_2": {
+        "solution": "Ich habe mich für wahr entschieden, weil die Steigung des Graphen als Geschwindigkeit interpretiert werden kann. Damit ergibt sich, dass bei höherer Laufgeschwindigkeit der Person innerhalb eines Streckenabschnittes der Anstieg steiler wird.",
+        "prompt": "Erkläre kurz, warum du dich für wahr oder falsch entschieden hast.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder die Steigung des Graphen als Geschwindigkeit noch schließen sie daraus, dass die höhere Laufgeschwindigkeiten einen steileren Anstieg haben."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder die Steigung des Graphen als Geschwindigkeit oder sie stellen fest, dass eine höhere Laufgeschwindigkeit einen steileren Anstieg bedeutet."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben die Steigung des Graphen als Geschwindigkeit und stellen fest, dass bei höherer Geschwindigkeit der Anstieg steiler wird."
+            }
+        }
+    },
+    "math_3": {
+        "solution": "Der Differenzenquotient funktioniert, da das Licht eine gewisse Zeit braucht, um die Strecke hin und zurück zulegen. Für den Abstand von einem Kilometer, wird der Nenner des Differenzenquotienten 1. ",
+        "prompt": "Erläutere, warum du \"Wahr\" oder \"Falsch\" angekreuzt hast.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder, dass das Licht eine gewisse Zeit braucht, um die Strecke zurück zulegen, noch schließen sie daraus, der Differenzenquotient funktioniert, um die angenäherte momentane Geschwindigkeit zu berechnen."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder, dass das Licht eine gewisse Zeit braucht, um die Strecke zurück zulegen, oder sie stellen fest, dass der Differenzenquotient funktioniert, um die angenäherte momentane Geschwindigkeit zu berechnen."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben, dass das Licht eine gewisse Zeit braucht, um die Strecke zurück zulegen, und stellen fest, der Differenzenquotient funktioniert, um die angenäherte momentane Geschwindigkeit zu berechnen."
+            }
+        }
+    },
+    "math_4": {
+        "solution": "Die Werte sind für f'(2)= 0, f'(4)=8 und f'(8)=12. Es fällt auf, dass die Zahlen für zunehmendes x linear steigen. ",
+        "prompt": "Erstelle einen Kurzbericht über das Steigungsverhalten der COVID-19-Neuerkrankungen in der Welle zwischen Dezember 2020 bis April 2021, indem du den Verlauf der Punkte x=2, x=4 und x=8 beschreibst. Was bedeutet das für den Verlauf der COVID-19-Neuerkrankungen?",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder das Steigungsverhalten der Covid-19-Neuerkrankungen durch die berechneten Werte noch schließen sie daraus, dass die Zahlen für zunehmendes x ansteigen."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder das Steigungsverhalten der Covid-19-Neuerkrankungen durch die berechneten Werte oder sie stellen fest, dass die Zahlen für zunehmendes x ansteigen."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben das Steigungsverhalten der Covid-19-Neuerkrankungen durch die berechneten Werte und stellen fest, dass die Zahlen für zunehmendes x ansteigen."
+            }
+        }
+    },
+    "math_5": {
+        "solution": "Da der Anstieg unabhängig von der Ausrichtung entlang der y-Achse ist, kommt es beim Zeichnen der ursprünglichen Funktionen zu einen Informationsverlust, da nicht festgestellt werden kann, in welche Richtung die Funktion nach oben oder unten verschoben wurde.",
+        "prompt": "Erläutere, warum du (Wahr) oder (Falsch) angekreuzt hast.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder die Unabhängigkeit des Anstiegs von der Verwschiebung entlang der y-Achse noch schließen sie daraus, dass somit ein Informationsverlust der Verschiebung entlang der y-Achse entsteht und die Ausgangsfunktion nicht eindeutig aus der Ableitungsfunktion hergeleitet werden kann."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder die Unabhängigkeit des Anstiegs von der Verwschiebung entlang der y-Achse oder sie stellen fest, dass somit ein Informationsverlust der Verschiebung entlang der y-Achse entsteht und die Ausgangsfunktion nicht eindeutig aus der Ableitungsfunktion hergeleitet werden kann."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben die Unabhängigkeit des Anstiegs von der Verwschiebung entlang der y-Achse und stellen fest, dass somit ein Informationsverlust der Verschiebung entlang der y-Achse entsteht und die Ausgangsfunktion nicht eindeutig aus der Ableitungsfunktion hergeleitet werden kann."
+            }
+        }
+    },
+    "math_6": {
+        "solution": "Es ist nicht möglich, genaue Aussagen über Gründe der Geschwindigkeitsveränderung zu treffen. Allerdings lassen sich Vermutungen anstellen, wie etwa schwieriges Terrain, steilere Berge oder Pausen. Diese lassen sich mit den Daten nicht unterscheiden. ",
+        "prompt": "Erkläre, warum du dich für \"Wahr\" oder \"Falsch\" entschieden hast.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weden, dass keine genauen Aussagen über Gründe der Geschwindigkeitsveränderung getroffen werden können, noch schließen sie daraus, dass nur Vermutungen angestellt werden können."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder, dass keine genauen Aussagen über Gründe der Geschwindigkeitsveränderung getroffen werden können, oder sie stellen fest, dass nur Vermutungen angestellt werden können."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben, dass keine genauen Aussagen über Gründe der Geschwindigkeitsveränderung getroffen werden können, und stellen fest, dass nur Vermutungen angestellt werden können."
+            }
+        }
+    },
+    "math_7": {
+        "solution": "Man erkennt, dass wenn die Punkte Messanfang und Messung Section Control zusammen auf den Punkt Messung Laserpistole fallen, die genauesten Messungen entstehen. Allerdings wenn sie aufeinander liegen, sind alle Werte 0.  Die minimale Messdauer ist genau dann, wenn alle Punkte aufeinander liegen.",
+        "prompt": "Stelle die minimale Messdauer in Geogebra für beide Messverfahren ein. Vergleiche die Messverfahren im Geogebra-Applet. Erläutere die Ergebnisse aus deinen Beobachtungen.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder die minimale Messdauer der Messverfahren noch schließen sie daraus, dass sich ber Verringerung der Messdauer eine genauere Geschwindigkeitsmessung erfolgen kann."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder die minimale Messdauer der Messverfahren oder sie stellen fest, dass sich ber Verringerung der Messdauer eine genauere Geschwindigkeitsmessung erfolgen kann."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben die minimale Messdauer der Messverfahren und stellen fest, dass sich ber Verringerung der Messdauer eine genauere Geschwindigkeitsmessung erfolgen kann."
+            }
+        }
+    },
+    "math_8": {
+        "solution": "Da die beiden Grenzwerte unterschiedlich sind und wir wissen, dass der Grenzwert von der linken Seite und von der rechten Seite übereinstimmen müssen, bedeutet dies, dass der Grenzwert an der Stelle x=0 für die Funktion nicht existiert.",
+        "prompt": "Was bedeuten die Ergebnisse für die Differenzierbarkeit der Funktion? Erläutere.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder den Grenzwert der Betragsfunktion an der Stelle Null noch schließen sie daraus, dass der Grenzwert an der Stelle Null nicht existiert, da der linke und der rechte Grenzwert nicht übereinstimmen."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder den Grenzwert der Betragsfunktion an der Stelle Null oder sie stellen fest, dass der Grenzwert an der Stelle Null nicht existiert, da der linke und der rechte Grenzwert nicht übereinstimmen."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben den Grenzwert der Betragsfunktion an der Stelle Null und stellen fest, dass der Grenzwert an der Stelle Null nicht existiert, da der linke und der rechte Grenzwert nicht übereinstimmen."
+            }
+        }
+    },
+    "math_9": {
+        "solution": "Da die Streckte durchgehend ist und nicht abbricht, werden alle Werte zwischen 1,6 und -1,6 mindestens einmal angenommen. Somit existiert eine Stelle mit dem Wert 0 und somit die Funktion besitzt an dieser Stelle den Anstieg 0. ",
+        "prompt": "Erläutere, warum man (Wahr) / man nicht (Falsch) einen Punkt auf der Strecke ohne Steigung berechnen oder bestimmen kann.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder den Verlauf der momentanen Steigungen der Funktion noch schließen sie daraus, dass eine Stelle existiert mit dem Anstieg Null."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder den Verlauf der momentanen Steigungen der Funktion oder sie stellen fest, dass eine Stelle existiert mit dem Anstieg Null."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben den Verlauf der momentanen Steigungen der Funktion und stellen fest, dass eine Stelle existiert mit dem Anstieg Null."
+            }
+        }
+    },
+    "math_11": {
+        "solution": "Die h-Schreibweise kann hilfreich sein, da sich das h, wie in diesem Beispiel, wegkürzen kann. Damit ist der Limes wesentlich leichter zu berechnen. ",
+        "prompt": "Erläutere am folgenden Beispiel, warum die h-Schreibweise hilfreich zur Berechnung des Differentialquotienten sein kann.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder, dass sich das h wegkürzt, noch schließen sie daraus, dass sich damit der Limes leichter berechnen lässt."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder, dass sich das h wegkürzt, oder sie stellen fest, dass sich der Limes leichter berechnen lässt."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben, dass sich das h wegkürzt, und stellen fest, dass sich damit der Limes leichter berechnen lässt."
+            }
+        }
+    },
+    "math_12": {
+        "solution": "Wenn die Punkte der Messungen aufeinander fallen, wird der Nenner des Bruches im Differenzenquotienten 0. Damit würde man durch 0 dividieren, was problematisch ist. ",
+        "prompt": "Erläutere, warum du \"Wahr\" oder \"Falsch\" angekreuzt hast.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder, dass der Nenner Null wird, wenn die Messungen aufeinander fallen, noch schließen sie daraus, dass das problematisch ist, da man nicht durch 0 dividieren darf."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder , dass der Nenner Null wird, wenn die Messungen aufeinander fallen, oder sie stellen fest, dass das problematisch ist, da man nicht durch 0 dividieren darf."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben, dass der Nenner Null wird, wenn die Messungen aufeinander fallen, und stellen fest, dass das problematisch ist, da man nicht durch 0 dividieren darf."
+            }
+        }
+    },
+    "math_14": {
+        "solution": "Ich habe mich für wahr entschieden, weil in diesem Fall die Funktionssegmente allesamt lineare Funktionen sind, das heißt mithilfe von Steigungsdreiecken erhalten wir eine Steigung, die der durchschnittlichen Geschwindigkeit innerhalb der Bereiche entspricht.",
+        "prompt": "Erkläre kurz, warum du dich für wahr oder falsch entschieden hast",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder dass die Funktionssegmente (Abschnitte) lineare Funktionen sind noch schließen sie daraus, dass damit durch das Steigungsdreieck die Steigung bestimmt werden kann, die dann die durchschnittliche Geschwindigkeit entspricht."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder  dass die Funktionssegmente (Abschnitte) lienare Funktionen sind oder  sie stellen fest, dass durch das Steigungsdreieck die Steigung bestimmt werden kann und die durchschnittliche Geschwindigkeit berechnet werden kann."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben die Steigung des Graphen als Geschwindigkeit und stellen fest, dass bei höherer Geschwindigkeit der Anstieg steiler wird."
+            }
+        }
+    },
+    "math_15": {
+        "solution": "Wenn die Messpunkte exakt aufeinander liegen, wird mein Nenner des Bruches im Differenzenquotienten 0. Damit würde man durch 0 dividieren, was problematisch ist.",
+        "prompt": "Erläutere, warum du \"Wahr\" oder \"Falsch\" angekreuzt hast.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder den Nenner, wenn die Messpunkte exakt aufeinanderfallen, noch schließen sie daraus, dass das mathematisch problematisch ist."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder den Nenner, wenn die Messpunkte exakt aufeinanderfallen, oder sie stellen fest, dass das mathematisch problematisch ist."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben den Nenner, wenn die Messpunkte exakt aufeinanderfallen, und stellen fest, dass das mathematisch problematisch ist."
+            }
+        }
+    },
+    "math_16": {
+        "solution": "Die Aussage ist wahr, da die Messzeitpunkte immer weiter minimal gewählt werden können und immer kleiner gemacht werden können, dabei kann man aber immer weiter heranzoomen. Das Ergebnis wird sich allerdings immer langsamer verändern, sodass sich ein Grenzwert bildet. ",
+        "prompt": "Erläutere, warum du mit \"Wahr\" oder \"Falsch\" geantwortet hast.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder, was passiert, wenn die Messzeitpunkte immer weiter minimal gewählt werden, noch schließen sie daraus, dass das Ergebnis immer langsamer verändert, sodass sich ein Grenzwert bildet."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder, was passiert, wenn die Messzeitpunkte immer weiter minimal gewählt werden, oder sie stellen fest, dass das Ergebnis immer langsamer bei Verringerung der Messabstände verändert, sodass sich ein Grenzwert bildet."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben, was passiert, wenn die Messzeitpunkte immer weiter minimal gewählt werden, und stellen fest, dass das Ergebnis immer langsamer verändert, sodass sich ein Grenzwert bildet. bestimmen."
+            }
+        }
+    },
+    "math_17": {
+        "solution": "Der Verlauf der Steigung ist für x=1, x=2 und x=3 positiv, aber für x=4 negativ. Das bedeutet, dass ein Übergang vom monoton steigenden zu monoton fallenden Anstieg geschehen musste. Insgesamt ist zu beobachten, dass der Anstieg immer flacher wird und schließlich fällt.  ",
+        "prompt": "Beschreibe den möglichen Verlauf der von dir berechneten momentanen Steigungen. Erläutere deine Erkenntnisse.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder den Verlauf der berechneten momentanen Steigungen noch schließen sie daraus, dass sich der Funktionxverlauf von monoton steigend zu monoton falllend wechselt."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder den Verlauf der berechneten momentanen Steigungen oder sie stellen fest, dass sich der Funktionxverlauf von monoton steigend zu monoton falllend wechselt."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben den Verlauf der berechneten momentanen Steigungen und stellen fest, dass sich der Funktionxverlauf von monoton steigend zu monoton falllend wechselt."
+            }
+        }
+    },
+    "math_19": {
+        "solution": "Eine mögliche Strategie wäre es anfänglich in Etappe 1 und zwischen Loudensvielle bis Col de Val Louron-Azet Kräfte zu sparen, da die letzte Etappe mit dem höchsten Anstieg besonders kräftezehrend ist.  ",
+        "prompt": "Formuliere eine Planung und Strategie für die 17. Etappe der Tour de France für den Teamchef eures Radrennteams. Beurteile die Planung und Strategie durch die mathematischen Ergebnisse.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder den Verlauf der Anstiege im Streckenverlauf noch schließen sie daraus, dass zu Beginn der Etappe Kräfte gespart werden sollten."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder den Verlauf der Anstiege im Streckenverlauf oder sie stellen fest, dass zu Beginn der Etappe Kräfte gespart werden sollten."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben den Verlauf der Anstiege im Streckenverlauf und stellen fest, dass zu Beginn der Etappe Kräfte gespart werden sollten."
+            }
+        }
+    },
+    "math_20": {
+        "solution": "In dem vierten Abschnitt wird kein Weg zurückgelegt. Damit ist die Geschwindigkeit über das Zeitintervall 0 km/h. Damit macht Marta eine Pause. ",
+        "prompt": "Interpretiere das Ergebnis für Abschnitt 4.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder, dass keine Strecke zurückgelegt wurde und die Laufgeschwindigkeit 0 km/h innerhalb des Abschnitts ist , noch schließen sie daraus, dass Marta eine Pause macht."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder, dass keine Strecke zurückgelegt wurde und die Laufgeschwindigkeit 0 km/h innerhalb des Abschnitts ist, oder sie stellen fest, dass Marta eine Pause macht."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben, dass dass keine Strecke zurückgelegt wurde und die Laufgeschwindigkeit 0 km/h innerhalb des Abschnitts ist, und stellen fest, dass Marta eine Pause macht."
+            }
+        }
+    },
+    "math_21": {
+        "solution": "Ich habe mich für falsch entschieden, da bei Funktionen, in diesem Fall innerhalb eines Weg-Zeit-Diagramms, die Betrachtung des Zusammenhanges zwischen den betrachteten Größen, der Strecke und der Zeit, interessant ist.",
+        "prompt": "Erkläre kurz, warum du dich für wahr oder falsch entschieden hast.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder die Funktion noch schließen sie daraus, dass die Betrachtung der Strecke und der Zeit mathematisch relevant ist."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder die Funktion oder sie stellen fest, dass das Weg-Zeit-Diagramm relevant ist."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben die Funktion und stellen fest, dass das Weg-Zeit-Diagramm relevant ist."
+            }
+        }
+    },
+    "math_23": {
+        "solution": "Eine mögliche Frage könnte sein: Wie hoch die durchschnittliche Geschwindigkeit nun wirklich ist? Oder, wie schnell ist die Person innerhalb der einzelnen Segmente gelaufen? Ist sie wirklich immer diese Geschwindigkeit gelaufen oder hier und da langsamer oder schneller?",
+        "prompt": "Formuliere selbst eine Fragestellung.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder die durchschnittliche Geschwindigkeit in Abschnitten, Segmenten etc. noch schließen sie daraus, dass sich damit die Geschwindigkeit bestimmten lässt."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder die durchschnittliche Geschwindigkeit ohne Zusammenhang mit einzelnen Segmenten bzw. Abschnitten oder sie stellen fest, dass die Geschwindigkeit in einzelnen Segmenten bzw. Anschnitten betrachtet werden kann ohne Zusammenhang zur durchschnittliche Geschwindigkeit."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben die durchschnittliche Geschwindigkeit und stellen fest, dass einzelne Segmente betrachtet werden können um die Geschwindigkeit in diesem Abschnitten zu bestimmen."
+            }
+        }
+    },
+    "math_24": {
+        "solution": "Die Geschwindigkeit zwischen den Stationen wird nur als ein durchschnittlicher Wert angegeben. Das bedeutet, dass die Person innerhalb dieser Zeit aber durchaus schneller oder langsamer hätte fahren können. Dabei kann die erlaubte Höchstgeschwindigkeit überschritten werden, was zu einem Bußgeld führen könnte.",
+        "prompt": "Erkläre, warum du wahr oder falsch angekreuzt hast.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder die durchschnittliche Geschwindigkeit zwischen den Stationen als durchschnittlichen Wert noch schließen sie daraus, dass die erlaubte Höchstgeschwindigkeit überschritten werden kann, ohne ein Bußgeld zu erhalten."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder die durchschnittliche Geschwindigkeit zwischen den Stationen als durchschnittlichen Wert oder sie stellen fest, die erlaubte Höchstgeschwindigkeit überschritten werden kann, ohne ein Bußgeld zu erhalten."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben die durchschnittliche Geschwindigkeit zwischen den Stationen als durchschnittlichen Wert und stellen fest, die erlaubte Höchstgeschwindigkeit überschritten werden kann, ohne ein Bußgeld zu erhalten."
+            }
+        }
+    },
+    "math_25": {
+        "solution": "Die Geschwindigkeit zwischen den Stationen wird nur als ein durchschnittlicher Wert angegeben. Das bedeutet, dass die Person innerhalb dieser Zeit aber durchaus schneller oder langsamer hätte fahren können. Dabei kann die erlaubte Höchstgeschwindigkeit überschritten werden. ",
+        "prompt": "Begründe, inwieweit ein Auto die Höchstgeschwindigkeit bei der Messung mit der Section Control überschreiten kann, ohne ein Bußgeld zu erhalten.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder, dass die Geschwindigkeit zwischen den Stationen nur ein durchschnittlicher Wert ist, noch schließen sie daraus, dass die erlaubte Höchstgeschwindigkeit überschritten werden kann."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder,dass die Geschwindigkeit zwischen den Stationen nur ein durchschnittlicher Wert ist, oder sie stellen fest, dass die erlaubte Höchstgeschwindigkeit überschritten werden kann."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben, dass die Geschwindigkeit zwischen den Stationen nur ein durchschnittlicher Wert ist, und stellen fest, die erlaubte Höchstgeschwindigkeit überschritten werden kann."
+            }
+        }
+    },
+    "math_26": {
+        "solution": "Eine Möglichkeit wäre es, den Abstand von einem Meter zu verringern und die Messungen schneller aufeinander zu machen oder im optimalen Fall gegen Null laufen zu lassen. Damit wird die Messdauer minimal. ",
+        "prompt": "Die Polizei möchte von dir eine Erklärung zu deinen Ergebnissen. Erläutere, warum du mit \"Wahr\" oder \"Falsch\" geantwortet hast.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder die Veringerung des Messabstands noch schließen sie daraus, dass sich damit die Messdauer verringert und die Geschwindigkeitsmessung genauer wird."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder die Veringerung des Messabstands oder sie stellen fest, dass sich damit die Messdauer verringert werden muss und die Geschwindigkeitsmessung genauer wird."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben die Veringerung des Messabstands und stellen fest, dass sich damit die Messdauer verringert und die Geschwindigkeitsmessung genauer wird."
+            }
+        }
+    },
+    "math_27": {
+        "solution": "Die Aussage ist wahr, da die Messzeitpunkte immer weiter minimal gewählt werden können und immer kleiner gemacht werden können, dabei kann man aber immer weiter heranzoomen. Das Ergebnis wird sich allerdings immer langsamer verändern, sodass sich ein Grenzwert bildet.",
+        "prompt": "Erläutere, warum du mit \"Wahr\" oder \"Falsch\" geantwortet hast.",
+        "learning_performance": {
+            "0": {
+                "rule": "nicht richtig",
+                "description": "Die SuS beschreiben weder, was passiert, wenn die Messzeitpunkte immer weiter minimal gewählt werden, noch schließen sie daraus, dass das Ergebnis immer langsamer verändert, sodass sich ein Grenzwert bildet."
+            },
+            "1": {
+                "rule": "teilweise richtig",
+                "description": "Die SuS beschreiben entweder, was passiert, wenn die Messzeitpunkte immer weiter minimal gewählt werden, oder sie stellen fest, dass das Ergebnis immer langsamer bei Verringerung der Messabstände verändert, sodass sich ein Grenzwert bildet."
+            },
+            "2": {
+                "rule": "richtig",
+                "description": "Die SuS beschreiben, was passiert, wenn die Messzeitpunkte immer weiter minimal gewählt werden, und stellen fest, dass das Ergebnis immer langsamer verändert, sodass sich ein Grenzwert bildet."
+            }
+        }
+    }
+}

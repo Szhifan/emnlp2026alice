@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use the ALICE benchmark, please cite the paper below."
+title: "ALICE: A Large-Scale German Benchmark for Rubric-Based Multi-Dimensional Automatic Short Answer Scoring"
+abstract: >-
+  ALICE is a German short-answer scoring benchmark for K-12 STEM education
+  (biology, chemistry, mathematics, physics). Every question carries its own
+  rubric set across three scoring dimensions — learning performance, knowledge
+  elements and skills — so that label semantics are represented as text rather
+  than as a fixed classification head. Two test splits separate generalisation
+  to unseen answers from generalisation to unseen questions.
+type: dataset
+# TODO: replace with the camera-ready author list before publishing.
+authors:
+  - name: "The ALICE Benchmark Authors"
+keywords:
+  - automatic short answer scoring
+  - rubric-based assessment
+  - educational NLP
+  - German
+  - STEM education
+  - benchmark
+license: CC-BY-NC-SA-4.0
+license-url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"

@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+.Python
+.venv/
+venv/
+env/
+
+# experiment outputs
+runs/
+outputs/
+wandb/
+*.log
+
+# checkpoints
+*.bin
+*.safetensors
+*.pt
+
+.DS_Store
+.ipynb_checkpoints/
+.vscode/
+.idea/
