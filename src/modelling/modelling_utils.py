@@ -5,7 +5,7 @@ Two modelling approaches are supported, both described in the paper:
 ``rubric-retrieval``
     Encode the answer jointly with each candidate rubric level and rank the
     candidates with a softmax over the question's own rubric set
-    (:class:`~alice.models.RubricRetrievalModel`).
+    (:class:`~modelling.modelling_rubret.RubricRetrievalModel`).
 
 ``seq-classification``
     Concatenate the answer with the sample solution (and optionally the
@@ -24,8 +24,8 @@ import torch
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
 
-from alice.data import GLOBAL_NUM_LEVELS, Instance
-from alice.encoding import (
+from data_utils.data_loader import GLOBAL_NUM_LEVELS, Instance
+from data_utils.data_prep import (
     encode_rubric_candidates,
     encode_sequence_classification,
     parse_input_fields,
@@ -169,7 +169,7 @@ def build_model(
     """
     from transformers import AutoConfig, AutoModelForSequenceClassification
 
-    from alice.models import RubricRetrievalModel
+    from modelling.modelling_rubret import RubricRetrievalModel
 
     quantization_config = _quantization_config(config)
     lora_config = _lora_config(config)

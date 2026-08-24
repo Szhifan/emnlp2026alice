@@ -16,16 +16,14 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from alice.data import DEFAULT_DATA_DIR, AliceLoader
-from alice.encoding import get_tokenizer
-from alice.metrics import evaluation_report, save_report
-from alice.pipeline import ModelConfig, build_collate_fn, build_model, encode_split, predict
-from alice.utils import default_device, save_predictions, set_seed
+from data_utils.data_loader import AliceLoader
+from data_utils.data_prep import get_tokenizer
+from metrics import evaluation_report, save_report
+from modelling.modelling_utils import ModelConfig, build_collate_fn, build_model, encode_split, predict
+from utils import default_device, save_predictions, set_seed
 
 CONFIG_KEYS = (
     "base_model",
@@ -47,7 +45,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
     parser.add_argument("--checkpoint", required=True)
-    parser.add_argument("--data-dir", default=str(DEFAULT_DATA_DIR))
+    parser.add_argument("--data-dir", default=None, help="directory or .zip with the release files; auto-detected by default")
     parser.add_argument(
         "--split", default="test_ua", choices=["train", "val", "test_ua", "test_uq"]
     )

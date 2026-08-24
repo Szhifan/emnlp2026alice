@@ -10,7 +10,7 @@ TASK=${TASK:-lp}
 CONFIG=${CONFIG:-full}    # full | norub | labels
 SPLIT=${SPLIT:-test_uq}
 
-python scripts/zero_shot_llm.py \
+python src/zero_shot_llm.py \
   --task "$TASK" \
   --split "$SPLIT" \
   --model "$MODEL" \

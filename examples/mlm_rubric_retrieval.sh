@@ -9,7 +9,7 @@ TASK=${TASK:-lp}          # lp | ke | sk
 FIELDS=${FIELDS:-ar}      # ar (base) or qsar (full context)
 NAME=$(basename "$MODEL")
 
-python scripts/train.py \
+python src/train.py \
   --task "$TASK" \
   --approach rubric-retrieval \
   --base-model "$MODEL" \

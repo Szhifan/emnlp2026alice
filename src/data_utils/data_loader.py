@@ -40,6 +40,7 @@ from __future__ import annotations
 
 import json
 import random
+import zipfile
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any, Iterable, Iterator, Sequence
@@ -53,6 +54,7 @@ __all__ = [
     "AliceLoader",
     "subject_of",
     "load_question_meta",
+    "DataSource",
 ]
 
 SUBJECTS: tuple[str, ...] = ("bio", "chemie", "math", "physik")
@@ -71,7 +73,12 @@ TASK_DIMENSION: dict[str, str] = {
 #: two indexings relate.
 GLOBAL_NUM_LEVELS: dict[str, int] = {"lp": 3, "ke": 4, "sk": 3}
 
-DEFAULT_DATA_DIR = Path(__file__).resolve().parent.parent / "alice_data_public"
+REPO_ROOT = Path(__file__).resolve().parents[2]
+
+#: The release ships as a zip. Either form works: unzip it and the extracted
+#: directory is picked up, or leave it packed and it is read in place.
+DEFAULT_DATA_DIR = REPO_ROOT / "alice_data_public"
+DEFAULT_DATA_ZIP = REPO_ROOT / "alice_data_public.zip"
 
 
 def subject_of(question_id: str) -> str:
@@ -82,13 +89,70 @@ def subject_of(question_id: str) -> str:
     return subject
 
 
-def load_question_meta(data_dir: str | Path = DEFAULT_DATA_DIR) -> dict[str, dict[str, Any]]:
+class DataSource:
+    """Reads the release files, whether extracted or still zipped.
+
+    Args:
+        path: A directory, a ``.zip``, or ``None`` to auto-detect — an
+            extracted ``alice_data_public/`` next to the repo root is
+            preferred, otherwise ``alice_data_public.zip``.
+    """
+
+    def __init__(self, path: str | Path | None = None) -> None:
+        if path is None:
+            path = DEFAULT_DATA_DIR if DEFAULT_DATA_DIR.is_dir() else DEFAULT_DATA_ZIP
+        path = Path(path)
+
+        if path.is_dir():
+            self.zipped = False
+        elif path.is_file() and zipfile.is_zipfile(path):
+            self.zipped = True
+        else:
+            raise FileNotFoundError(
+                f"No ALICE data at {path}. Expected the directory "
+                f"{DEFAULT_DATA_DIR.name}/ or the archive {DEFAULT_DATA_ZIP.name} "
+                f"in {REPO_ROOT}, or pass --data-dir explicitly."
+            )
+        self.path = path
+
+    def read_json(self, name: str) -> Any:
+        """Load one release file, e.g. ``"train.json"`` or ``"question_meta/bio.json"``."""
+        if not self.zipped:
+            with open(self.path / name, encoding="utf-8") as fh:
+                return json.load(fh)
+        with zipfile.ZipFile(self.path) as archive:
+            return json.loads(archive.read(self._member(archive, name)).decode("utf-8"))
+
+    @staticmethod
+    def _member(archive: zipfile.ZipFile, name: str) -> str:
+        """Find ``name`` inside the archive, tolerating a wrapping directory.
+
+        Finder-made zips nest everything under ``alice_data_public/`` and add
+        ``__MACOSX`` resource forks, so match on the trailing path instead of
+        assuming a layout.
+        """
+        candidates = [
+            entry
+            for entry in archive.namelist()
+            if not entry.startswith("__MACOSX/")
+            and not Path(entry).name.startswith("._")
+            and (entry == name or entry.endswith("/" + name))
+        ]
+        if not candidates:
+            raise KeyError(f"{name} not found in {archive.filename}")
+        # shortest path wins, so a top-level file beats a nested duplicate
+        return min(candidates, key=len)
+
+    def __repr__(self) -> str:
+        return f"DataSource({self.path}, zipped={self.zipped})"
+
+
+def load_question_meta(data_dir: str | Path | None = None) -> dict[str, dict[str, Any]]:
     """Load every ``question_meta`` file into one ``question_id -> meta`` dict."""
-    meta_dir = Path(data_dir) / "question_meta"
+    source = data_dir if isinstance(data_dir, DataSource) else DataSource(data_dir)
     meta: dict[str, dict[str, Any]] = {}
     for subject in SUBJECTS:
-        with open(meta_dir / f"{subject}.json", encoding="utf-8") as fh:
-            meta.update(json.load(fh))
+        meta.update(source.read_json(f"question_meta/{subject}.json"))
     return meta
 
 
@@ -153,7 +217,8 @@ class AliceLoader:
     """Load and preprocess the ALICE splits for one subtask.
 
     Args:
-        data_dir: Directory holding the release files.
+        data_dir: Directory or ``.zip`` holding the release files. ``None``
+            auto-detects the release shipped with the repo.
         task: One of ``"lp"``, ``"ke"``, ``"sk"``.
         subjects: Restrict to these subjects; ``None`` keeps all four.
         val_frac: Fraction of ``train`` held out as a validation split. The
@@ -177,7 +242,7 @@ class AliceLoader:
 
     def __init__(
         self,
-        data_dir: str | Path = DEFAULT_DATA_DIR,
+        data_dir: str | Path | None = None,
         task: str = "lp",
         subjects: Sequence[str] | None = None,
         val_frac: float = 0.1,
@@ -191,11 +256,11 @@ class AliceLoader:
         if not 0.0 <= val_frac < 1.0:
             raise ValueError("val_frac must be in [0, 1)")
 
-        self.data_dir = Path(data_dir)
+        self.source = data_dir if isinstance(data_dir, DataSource) else DataSource(data_dir)
         self.task = task
         self.subjects = tuple(subjects) if subjects else SUBJECTS
         self.seed = seed
-        self.meta = load_question_meta(self.data_dir)
+        self.meta = load_question_meta(self.source)
 
         train = self._build("train.json")
         self.test_ua = self._build("test_ua.json")
@@ -213,8 +278,7 @@ class AliceLoader:
     # construction
     # ------------------------------------------------------------------
     def _build(self, filename: str) -> list[Instance]:
-        with open(self.data_dir / filename, encoding="utf-8") as fh:
-            records = json.load(fh)
+        records = self.source.read_json(filename)
         instances: list[Instance] = []
         for record in records:
             if subject_of(record["question_id"]) not in self.subjects:

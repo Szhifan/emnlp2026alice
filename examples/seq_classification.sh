@@ -9,7 +9,7 @@ TASK=${TASK:-lp}
 FIELDS=${FIELDS:-sa}
 NAME=$(basename "$MODEL")
 
-python scripts/train.py \
+python src/train.py \
   --task "$TASK" \
   --approach seq-classification \
   --base-model "$MODEL" \

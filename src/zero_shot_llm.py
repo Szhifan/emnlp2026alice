@@ -34,16 +34,14 @@ import argparse
 import json
 import os
 import re
-import sys
 import time
 from pathlib import Path
 from typing import Any
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from alice.data import DEFAULT_DATA_DIR, AliceLoader, Instance
-from alice.metrics import evaluation_report, save_report
-from alice.utils import save_predictions
+from data_utils.data_loader import AliceLoader, Instance
+from metrics import evaluation_report, save_report
+from utils import save_predictions
 
 SYSTEM_PROMPT = """Sie werden die Antwort eines K12-Schuelers in MINT-Faechern bewerten.
 
@@ -175,7 +173,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    parser.add_argument("--data-dir", default=str(DEFAULT_DATA_DIR))
+    parser.add_argument("--data-dir", default=None, help="directory or .zip with the release files; auto-detected by default")
     parser.add_argument("--task", choices=["lp", "ke", "sk"], default="lp")
     parser.add_argument("--split", default="test_ua", choices=["train", "val", "test_ua", "test_uq"])
     parser.add_argument("--model", required=True, help="e.g. gpt-4o-mini, or a served model name")

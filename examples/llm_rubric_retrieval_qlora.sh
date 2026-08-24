@@ -11,7 +11,7 @@ TASK=${TASK:-lp}
 FIELDS=${FIELDS:-qsar}
 NAME=$(basename "$MODEL")
 
-python scripts/train.py \
+python src/train.py \
   --task "$TASK" \
   --approach rubric-retrieval \
   --base-model "$MODEL" \

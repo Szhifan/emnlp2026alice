@@ -61,7 +61,7 @@ After expanding the multi-label dimensions, the scoring instances per subtask ar
 | `ke` | 21,516 | 2,390 | 5,851 | 6,304 |
 | `sk` | 10,222 | 1,135 | 2,833 | 3,103 |
 
-Reproduce this table with `python scripts/dataset_stats.py`.
+Reproduce this table with `python src/dataset_stats.py`.
 
 ---
 
@@ -73,14 +73,21 @@ cd alice-benchmark
 pip install -r requirements.txt
 ```
 
-Inspecting the data needs no dependencies at all — `alice.data` is pure standard library:
+The dataset ships as `alice_data_public.zip`. **You do not need to unzip it** — the loader reads the archive in place. Unzip it anyway if you would rather browse the JSON:
 
 ```bash
-python scripts/dataset_stats.py --show-example --task ke
+unzip alice_data_public.zip     # optional
+```
+
+Inspecting the data needs no dependencies at all — `data_utils.data_loader` is pure standard library:
+
+```bash
+python src/dataset_stats.py --show-example --task ke
 ```
 
 ```python
-from alice.data import AliceLoader
+import sys; sys.path.insert(0, "src")   # from the repo root
+from data_utils.data_loader import AliceLoader
 
 loader = AliceLoader(task="lp")
 print(loader)
@@ -96,10 +103,13 @@ instance.level       # index of the gold level in `instance.rubrics`
 ## Data format
 
 ```
-alice_data_public/
-  train.json          test_ua.json          test_uq.json
-  question_meta/      bio.json  chemie.json  math.json  physik.json
+alice_data_public.zip
+  alice_data_public/
+    train.json          test_ua.json          test_uq.json
+    question_meta/      bio.json  chemie.json  math.json  physik.json
 ```
+
+`--data-dir` accepts either the archive or an extracted directory; with no flag it finds whichever is present.
 
 A record in a split file:
 
@@ -184,7 +194,7 @@ So `ar` is the base rubric-retrieval input, `qsar` adds full context, and `sa` i
 Masked LM encoder, rubric-retrieval, base input (paper setting: lr 2e-5, 4 epochs, batch 16):
 
 ```bash
-python scripts/train.py \
+python src/train.py \
   --task lp --approach rubric-retrieval \
   --base-model jhu-clsp/mmBERT-base \
   --input-fields ar \
@@ -195,7 +205,7 @@ python scripts/train.py \
 Causal LLM encoder under QLoRA, full context (paper setting: 4-bit, LoRA rank 64, lr 1e-4, 3 epochs, batch 4 × 8 accumulation). Needs CUDA and `bitsandbytes`:
 
 ```bash
-python scripts/train.py \
+python src/train.py \
   --task ke --approach rubric-retrieval \
   --base-model meta-llama/Llama-3.2-3B-Instruct \
   --input-fields qsar \
@@ -207,7 +217,7 @@ python scripts/train.py \
 Sequence-classification baseline:
 
 ```bash
-python scripts/train.py \
+python src/train.py \
   --task lp --approach seq-classification \
   --base-model jhu-clsp/mmBERT-base \
   --input-fields sa \
@@ -233,15 +243,15 @@ Metrics are macro-F1, quadratic weighted kappa and accuracy, overall and broken 
 
 ## Inference
 
-`scripts/predict.py` reads `run_config.json` back, so a checkpoint scores a split with exactly the input format it was trained with:
+`src/predict.py` reads `run_config.json` back, so a checkpoint scores a split with exactly the input format it was trained with:
 
 ```bash
-python scripts/predict.py --checkpoint runs/mmbert_lp_ar --split test_uq
+python src/predict.py --checkpoint runs/mmbert_lp_ar --split test_uq
 ```
 
 ## Zero-shot prompting
 
-`scripts/zero_shot_llm.py` reproduces the prompting setup from the paper appendix: a German system prompt with a task-specific FOCUS line, a user message carrying the rubric set and optional context, and a JSON reply with a short justification and one integer score.
+`src/zero_shot_llm.py` reproduces the prompting setup from the paper appendix: a German system prompt with a task-specific FOCUS line, a user message carrying the rubric set and optional context, and a JSON reply with a short justification and one integer score.
 
 Three input configurations:
 
@@ -253,11 +263,11 @@ Three input configurations:
 
 ```bash
 # inspect the exact prompt without spending tokens
-python scripts/zero_shot_llm.py --task lp --model gpt-4o-mini \
+python src/zero_shot_llm.py --task lp --model gpt-4o-mini \
   --input-config full --output-dir /tmp/x --dry-run
 
 export OPENAI_API_KEY=...
-python scripts/zero_shot_llm.py \
+python src/zero_shot_llm.py \
   --task lp --split test_uq --model gpt-4o-mini --input-config full \
   --output-dir runs/zeroshot_gpt4omini_lp_full
 ```
@@ -281,15 +291,16 @@ These numbers are not directly comparable to published baselines associated with
 ## Repository layout
 
 ```
-alice_data_public/          the dataset
-alice/
-  data.py                   loading, joining, rubric rendering (stdlib only)
-  encoding.py               input formatting, tokenisation, collation
-  models.py                 the rubric-retrieval model
-  pipeline.py               shared model/dataset wiring
+alice_data_public.zip       the dataset
+src/
+  data_utils/
+    data_loader.py          loading, joining, rubric rendering (stdlib only)
+    data_prep.py            input formatting, tokenisation, collation
+  modelling/
+    modelling_rubret.py     the rubric-retrieval model
+    modelling_utils.py      shared model/dataset wiring
   metrics.py                macro-F1, QWK, accuracy, per-subject breakdown
   utils.py                  seeding, device selection, prediction I/O
-scripts/
   dataset_stats.py          statistics, and a check that the release parses
   train.py                  fine-tuning, both approaches
   predict.py                inference from a checkpoint
@@ -298,9 +309,11 @@ examples/                   ready-to-edit run scripts
 assets/                     figures used in this README
 ```
 
+Run the entry points from the repo root as `python src/<script>.py`; Python puts `src/` on the path, so the `data_utils` / `modelling` imports resolve with no setup.
+
 ## Licence and terms of use
 
-- **Data** (`alice_data_public/`): [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — see [LICENSE-DATA](LICENSE-DATA).
+- **Data** (`alice_data_public.zip`): [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) — see [LICENSE-DATA](LICENSE-DATA).
 - **Code**: MIT — see [LICENSE](LICENSE).
 
 The data consists of responses written by K-12 students in routine classroom assessment, collected under educational governance and privacy protections; identifiers were removed and responses anonymised before annotation. Do not attempt to re-identify students, teachers, classes or schools, and do not redistribute the data in a form that reverses the anonymisation.

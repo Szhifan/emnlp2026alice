@@ -108,7 +108,7 @@ def render_input(
     """Render one model input string.
 
     Args:
-        instance: An :class:`~alice.data.Instance` as a dict.
+        instance: An :class:`~data_utils.data_loader.Instance` as a dict.
         fields: Full field names, e.g. ``["question", "answer", "rubric"]``.
         rubric: A single rubric candidate, for rubric-retrieval.
         rubrics: The full rubric set, for sequence classification. Ignored when

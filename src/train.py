@@ -26,17 +26,15 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from alice.data import DEFAULT_DATA_DIR, AliceLoader
-from alice.encoding import get_tokenizer
-from alice.metrics import evaluation_report, save_report
-from alice.pipeline import (
+from data_utils.data_loader import AliceLoader
+from data_utils.data_prep import get_tokenizer
+from metrics import evaluation_report, save_report
+from modelling.modelling_utils import (
     APPROACHES,
     ModelConfig,
     build_collate_fn,
@@ -45,7 +43,7 @@ from alice.pipeline import (
     is_causal_lm,
     predict,
 )
-from alice.utils import default_device, save_predictions, set_seed
+from utils import default_device, save_predictions, set_seed
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -53,7 +51,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
     data = parser.add_argument_group("data")
-    data.add_argument("--data-dir", default=str(DEFAULT_DATA_DIR))
+    data.add_argument("--data-dir", default=None, help="directory or .zip with the release files; auto-detected by default")
     data.add_argument("--task", choices=["lp", "ke", "sk"], default="lp")
     data.add_argument(
         "--subjects", nargs="*", default=None, help="restrict to e.g. bio physik"
