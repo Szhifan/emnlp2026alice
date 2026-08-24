@@ -140,7 +140,7 @@ def main(argv: list[str] | None = None) -> None:
     }
 
     checkpoint = str(output_dir) if args.test_only else None
-    model = build_model(config, checkpoint=checkpoint)
+    model = build_model(config, checkpoint=checkpoint, pad_token_id=tokenizer.pad_token_id)
 
     if not args.test_only:
         from transformers import Trainer, TrainingArguments

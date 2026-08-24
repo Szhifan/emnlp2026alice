@@ -155,8 +155,18 @@ def _lora_config(config: ModelConfig):
     )
 
 
-def build_model(config: ModelConfig, checkpoint: str | None = None):
-    """Build a fresh model, or load one from ``checkpoint``."""
+def build_model(
+    config: ModelConfig,
+    checkpoint: str | None = None,
+    pad_token_id: int | None = None,
+):
+    """Build a fresh model, or load one from ``checkpoint``.
+
+    ``pad_token_id`` is only consulted by the sequence-classification head,
+    which pools at the last non-padding position and therefore has to know
+    which token is padding. Causal LMs usually ship without a pad token, so
+    pass the tokeniser's.
+    """
     from transformers import AutoConfig, AutoModelForSequenceClassification
 
     from alice.models import RubricRetrievalModel
@@ -208,7 +218,7 @@ def build_model(config: ModelConfig, checkpoint: str | None = None):
         quantization_config=quantization_config,
     )
     if model.config.pad_token_id is None:
-        model.config.pad_token_id = model_config.eos_token_id
+        model.config.pad_token_id = pad_token_id if pad_token_id is not None else model_config.eos_token_id
     if lora_config is not None:
         from peft import get_peft_model
 

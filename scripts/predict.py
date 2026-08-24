@@ -91,7 +91,7 @@ def main(argv: list[str] | None = None) -> None:
     dataset = encode_split(instances, tokenizer, config)
     collate_fn = build_collate_fn(config, tokenizer)
 
-    model = build_model(config, checkpoint=args.checkpoint)
+    model = build_model(config, checkpoint=args.checkpoint, pad_token_id=tokenizer.pad_token_id)
     device = default_device()
     model.to(device)
 
