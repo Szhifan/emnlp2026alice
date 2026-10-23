@@ -46,6 +46,10 @@ alice_data_public/
 
 Each split record contains an answer ID, a question ID, the student response, and scores for the applicable dimensions. Question metadata provides the prompt, sample solution, and rubric rules and descriptions for each scoring level. Records link to metadata through `question_id`.
 
+## Rubric update (23 October 2026)
+
+The dataset includes 25 supplementary rubric descriptions drafted with AI assistance using the question context, neighboring rubric levels, and sampled student answers. The corresponding entries in the original scoring guides contain dash placeholders; several are marked as collapsed or distinguish only the endpoint scores. Student answers, score labels, and data splits are unchanged.
+
 ## Licence
 
 The anonymised student responses are released under [CC BY-NC-SA 4.0](LICENSE-DATA). Repository code is available under the [MIT licence](LICENSE).
